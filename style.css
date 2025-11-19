@@ -15,12 +15,14 @@
   font-size: 5rem;
   font-weight: 900;
   margin: 0;
+  color: white;
 }
 
 .headerText {
   font-size: 2rem;
   margin: 0;
   font-weight: 600;
+  color: #e6e6e6;
 }
 
 .photoGrid {
@@ -33,7 +35,10 @@
 
 .photoGrid .photos {
   width: 100%;
-  display: contents;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .photoPolaroid {
@@ -43,23 +48,106 @@
   border-radius: 6px;
 }
 
+
+html, body {
+  min-height: 100vh;
+}
+
+html {
+  background-image: url('./img/background.png');
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
 body {
   margin-top: 1.25rem;
-  background-image: url('./img/background.png');
+  background: transparent;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  html {
+    background-image: url('./img/background.png');
+  }
+}
+
 .header {
   margin: 0 auto;
   font-family: poppins, sans-serif;
-  height: 6.25rem;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  height: auto;
+  padding: 1rem 0;
 }
+
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: cover;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+
+  body { color: black; }
+  .title1 { color: black; }
+  .headerText { color: #111; }
+  .photoGrid, .photoGrid * { color: black; }
+
+  .header {
+    width: 95%;
+    height: auto;
+    padding: 1rem 0.5rem;
+  }
+
+  .title1 {
+    font-size: 2rem;
+    margin-left: 0;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .headerText {
+    font-size: 1rem;
+  }
+
+  .photoGrid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .photoPolaroid {
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+
+  .photoGrid .photos { display: block; }
+}
+
+@media (max-width: 400px) {
+  .title1 { font-size: 1.6rem; }
+  .headerText { font-size: 0.95rem; }
+  .photoPolaroid { max-width: 100%; }
+}
+
+/* Toques de usabilidade: aumenta acionáveis e espaçamento em telas pequenas */
+@media (pointer: coarse) and (max-width: 900px) {
+  :root { --touch-spacing: 12px; }
+  .header, .photoGrid { padding-bottom: var(--touch-spacing); }
+}
+
