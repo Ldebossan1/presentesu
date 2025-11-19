@@ -1,9 +1,13 @@
 .title1 {
-  font-size: 5rem;
   font-weight: 900;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   color: black;
-  margin-left: 3.125rem;
+  text-align: center;
+  font-size: clamp(24px, 5.5vw, 56px);
+  line-height: 1.05;
+  word-break: keep-all;
+  hyphens: none;
+  overflow-wrap: normal;
 }
 
 .headerText {
@@ -51,7 +55,7 @@ html {
 body {
   margin-top: 1.25rem;
   background: transparent;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,6 +100,10 @@ body {
     margin-left: 0;
     text-align: center;
     line-height: 1.1;
+    /* evita que palavras sejam separadas/hipenizadas automaticamente */
+    word-break: keep-all;
+    hyphens: none;
+    overflow-wrap: normal;
   }
 
   .headerText {
