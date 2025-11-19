@@ -1,0 +1,65 @@
+.title1 {
+  font-size: 2rem;
+  margin-left: 3.125rem;
+}
+
+.headerText {
+  font-size: 0.875rem;
+}
+
+.photoPolaroid {
+  max-width: 50px;
+}
+
+.title1 {
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.headerText {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.photoGrid {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+  justify-items: center;
+  align-items: start;
+}
+
+.photoGrid .photos {
+  width: 100%;
+  display: contents;
+}
+
+.photoPolaroid {
+  max-width: 50rem;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+body {
+  margin-top: 1.25rem;
+  background-image: url('./img/background.png');
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.header {
+  margin: 0 auto;
+  font-family: poppins, sans-serif;
+  height: 6.25rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
