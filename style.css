@@ -1,21 +1,9 @@
 .title1 {
-  font-size: 2rem;
-  margin-left: 3.125rem;
-}
-
-.headerText {
-  font-size: 0.875rem;
-}
-
-.photoPolaroid {
-  max-width: 50px;
-}
-
-.title1 {
   font-size: 5rem;
   font-weight: 900;
   margin: 0;
   color: black;
+  margin-left: 3.125rem;
 }
 
 .headerText {
@@ -28,28 +16,27 @@
 .photoGrid {
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas por linha no desktop */
+  gap: 1rem;
   justify-items: center;
   align-items: start;
 }
 
 .photoGrid .photos {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: contents; /* permite que as imagens sejam tratadas como grid items */
 }
 
 .photoPolaroid {
+  width: 100%;
   max-width: 50rem;
   height: auto;
   display: block;
   border-radius: 6px;
 }
 
-
-html, body {
+html,
+body {
   min-height: 100vh;
 }
 
@@ -81,7 +68,7 @@ body {
 
 .header {
   margin: 0 auto;
-  font-family: poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -100,20 +87,11 @@ body {
     margin-top: 0.5rem;
     padding: 0.5rem;
     align-items: flex-start;
-  }
-
-  body { color: black; }
-  .title1 { color: black; }
-  .headerText { color: #111; }
-  .photoGrid, .photoGrid * { color: black; }
-
-  .header {
-    width: 95%;
-    height: auto;
-    padding: 1rem 0.5rem;
+    color: black; /* texto preto no mobile */
   }
 
   .title1 {
+    color: black;
     font-size: 2rem;
     margin-left: 0;
     text-align: center;
@@ -121,7 +99,13 @@ body {
   }
 
   .headerText {
+    color: #111;
     font-size: 1rem;
+  }
+
+  .header {
+    width: 95%;
+    padding: 1rem 0.5rem;
   }
 
   .photoGrid {
@@ -136,17 +120,38 @@ body {
     border-radius: 8px;
   }
 
-  .photoGrid .photos { display: block; }
+  .photoGrid .photos {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .photoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 400px) {
-  .title1 { font-size: 1.6rem; }
-  .headerText { font-size: 0.95rem; }
-  .photoPolaroid { max-width: 100%; }
+  .title1 {
+    font-size: 1.6rem;
+  }
+
+  .headerText {
+    font-size: 0.95rem;
+  }
+
+  .photoPolaroid {
+    max-width: 100%;
+  }
 }
 
 @media (pointer: coarse) and (max-width: 900px) {
-  :root { --touch-spacing: 12px; }
-  .header, .photoGrid { padding-bottom: var(--touch-spacing); }
-}
+  :root {
+    --touch-spacing: 12px;
+  }
 
+  .header,
+  .photoGrid {
+    padding-bottom: var(--touch-spacing);
+  }
+}
