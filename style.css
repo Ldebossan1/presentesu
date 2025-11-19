@@ -15,14 +15,14 @@
   font-size: 5rem;
   font-weight: 900;
   margin: 0;
-  color: white;
+  color: black;
 }
 
 .headerText {
   font-size: 2rem;
   margin: 0;
   font-weight: 600;
-  color: #e6e6e6;
+  color: black;
 }
 
 .photoGrid {
@@ -145,7 +145,6 @@ body {
   .photoPolaroid { max-width: 100%; }
 }
 
-/* Toques de usabilidade: aumenta acionáveis e espaçamento em telas pequenas */
 @media (pointer: coarse) and (max-width: 900px) {
   :root { --touch-spacing: 12px; }
   .header, .photoGrid { padding-bottom: var(--touch-spacing); }
