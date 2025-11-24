@@ -1,173 +1,123 @@
-.title1 {
-  font-weight: 900;
-  margin: 0 0 0.5rem 0;
-  color: black;
-  text-align: center;
-  font-size: clamp(24px, 5.5vw, 56px);
-  line-height: 1.05;
-  word-break: keep-all;
-  hyphens: none;
-  overflow-wrap: normal;
-}
-
-.headerText {
-  font-size: 2rem;
-  margin: 0;
-  font-weight: 600;
-  color: black;
-}
-
-.photoGrid {
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas por linha no desktop */
-  gap: 1rem;
-  justify-items: center;
-  align-items: start;
-}
-
-.photoGrid .photos {
-  width: 100%;
-  display: contents; /* permite que as imagens sejam tratadas como grid items */
-}
-
-.photoPolaroid {
-  width: 100%;
-  max-width: 50rem;
-  height: auto;
-  display: block;
-  border-radius: 6px;
+* {
+  box-sizing: border-box;
 }
 
 html,
 body {
-  min-height: 100vh;
-}
-
-html {
-  background-image: url('./img/background.png');
-  background-color: #000;
-  background-repeat: no-repeat;
-  background-position: center top;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  min-height: 100%;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f7f3e9;
+  color: #5c5c5c;
+  background-image: url("./img/background.png");
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-body {
-  margin-top: 1.25rem;
-  background: transparent;
-  color: black;
+header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  html {
-    background-image: url('./img/background.png');
-  }
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #d4a574;
 }
 
-.header {
+nav a {
+  margin: 0 15px;
+  color: #5c5c5c;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+main {
+  width: 100%;
+  max-width: 960px;
   margin: 0 auto;
-  font-family: 'Poppins', sans-serif;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  padding: 15px 10px;
+}
+
+section#profile h2 {
+  margin-bottom: 20px;
   text-align: center;
+}
+
+#photoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  padding: 0;
+}
+
+#photoGrid img {
+  width: 150%;
+  left: -25%;
   height: auto;
-  padding: 1rem 0;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+  border: none;
+  transform-origin: center center;
+  transform: scale(1.08);
+  transition: transform 220ms ease;
 }
 
-@media (max-width: 600px) {
-  body {
-    background-attachment: scroll;
-    background-position: center top;
-    background-size: cover;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    align-items: flex-start;
-    color: black; /* texto preto no mobile */
-  }
+#photoGrid img:hover {
+  transform: scale(1.12);
+}
 
-  .title1 {
-    color: black;
-    font-size: 3rem;
-    margin-left: 0;
-    text-align: center;
-    line-height: 1.1;
-    /* evita que palavras sejam separadas/hipenizadas automaticamente */
-    word-break: keep-all;
-    hyphens: none;
-    overflow-wrap: normal;
-  }
-
-  .headerText {
-    color: #111;
-    font-size: 1.5rem;
-  }
-
-  .header {
-    width: 95%;
-    padding: 1rem 0.5rem;
-  }
-
-  .photoGrid {
-    grid-template-columns: 1fr !important;
-    gap: 0.75rem;
-    padding: 0.5rem;
-  }
-
-  .photoPolaroid {
-    max-width: 95%;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-
-  .photoGrid .photos {
-    display: block;
+@media (max-width: 1100px) {
+  #photoGrid img {
+    width: 100%;
+    height: 130%;
+    left: 0%;
+    transform: scale(1.04);
   }
 }
 
-@media (max-width: 900px) {
-  .title1 {
-    font-size: 2.5rem;
-  }
-
-  .headerText {
-    font-size: 1.2rem;
-  }
-
-  .photoGrid {
-    grid-template-columns: repeat(1, 1fr);
+@media (max-width: 768px) {
+  #photoGrid img {
+    width: 100%;
+    left: 0%;
+    transform: scale(1.04);
   }
 }
 
-@media (max-width: 400px) {
-  .title1 {
-    font-size: 1.6rem;
-  }
-
-  .headerText {
-    font-size: 0.95rem;
-  }
-
-  .photoPolaroid {
-    max-width: 100%;
+@media (max-width: 480px) {
+  #photoGrid img {
+    transform: scale(1.02);
   }
 }
 
-@media (pointer: coarse) and (max-width: 900px) {
-  :root {
-    --touch-spacing: 12px;
+@media (max-width: 768px) {
+  #photoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #photoGrid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
   }
 
-  .header,
-  .photoGrid {
-    padding-bottom: var(--touch-spacing);
+  main {
+    padding: 10px 5px;
   }
 }
